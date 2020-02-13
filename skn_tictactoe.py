@@ -1,17 +1,10 @@
-#!/usr/bin/env python3
 from math import inf as infinity
 from random import choice
-import platform
 import time
-from os import system
 
 """
 An implementation of Minimax AI Algorithm in Tic Tac Toe,
 using Python.
-This software is available under GPL license.
-Author: Clederson Cruz
-Year: 2017
-License: GNU GENERAL PUBLIC LICENSE (GPL)
 """
 
 HUMAN = -1
@@ -151,18 +144,6 @@ def minimax(state, depth, player):
 
     return best
 
-
-def clean():
-    """
-    Clears the console
-    """
-    os_name = platform.system().lower()
-    if 'windows' in os_name:
-        system('cls')
-    else:
-        system('clear')
-
-
 def render(state, c_choice, h_choice):
     """
     Print the board on console
@@ -195,8 +176,6 @@ def ai_turn(c_choice, h_choice):
     depth = len(empty_cells(board))
     if depth == 0 or game_over(board):
         return
-
-    clean()
     print(f'Computer turn [{c_choice}]')
     render(board, c_choice, h_choice)
 
@@ -229,8 +208,6 @@ def human_turn(c_choice, h_choice):
         4: [1, 0], 5: [1, 1], 6: [1, 2],
         7: [2, 0], 8: [2, 1], 9: [2, 2],
     }
-
-    clean()
     print(f'Human turn [{h_choice}]')
     render(board, c_choice, h_choice)
 
@@ -254,7 +231,6 @@ def main():
     """
     Main function that calls all functions
     """
-    clean()
     h_choice = ''  # X or O
     c_choice = ''  # X or O
     first = ''  # if human is the first
@@ -263,7 +239,7 @@ def main():
     while h_choice != 'O' and h_choice != 'X':
         try:
             print('')
-            h_choice = input('Choose X or O\nChosen: ').upper()
+            h_choice = input('Choose X or O : ').upper()
         except (EOFError, KeyboardInterrupt):
             print('Bye')
             exit()
@@ -277,7 +253,6 @@ def main():
         c_choice = 'X'
 
     # Human may starts first
-    clean()
     while first != 'Y' and first != 'N':
         try:
             first = input('First to start?[y/n]: ').upper()
@@ -298,21 +273,17 @@ def main():
 
     # Game over message
     if wins(board, HUMAN):
-        clean()
         print(f'Human turn [{h_choice}]')
         render(board, c_choice, h_choice)
         print('YOU WIN!')
     elif wins(board, COMP):
-        clean()
         print(f'Computer turn [{c_choice}]')
         render(board, c_choice, h_choice)
         print('YOU LOSE!')
     else:
-        clean()
         render(board, c_choice, h_choice)
         print('DRAW!')
-
-    exit()
+        exit()
 
 
 if __name__ == '__main__':

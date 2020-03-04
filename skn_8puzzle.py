@@ -213,10 +213,7 @@ def check_solvable(g):
 
 # Final Running of the Code
 
-# uncomment the line below to run it for a fixed data input and comment the line below it
-# k = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 0]])
 k = get_initial()
-
 check_correct_input(k)
 check_solvable(k)
 
@@ -226,8 +223,7 @@ root = Node(0, k, None, None, 0)
 goal, s, v = exploring_nodes(root)
 
 if goal is None and s is None and v is None:
-    print("Goal State could not be reached, Sorr
-y")
+    print("Goal State could not be reached, Sorry")
 else:
     # Print and write the final output
     print_states(path(goal))

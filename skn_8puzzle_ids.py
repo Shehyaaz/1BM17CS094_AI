@@ -186,7 +186,7 @@ check_solvable(k)
 
 root = Node(0, k, None,[],None,0)
 MAX_DEPTH = 10
-goal_node = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 0]])
+goal_node = np.array([[0, 1, 2], [3, 4, 5], [6, 7, 8]])
 
 # IDS implementation call
 goal = ids(root, goal_node,MAX_DEPTH)

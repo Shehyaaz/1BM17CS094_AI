@@ -152,7 +152,7 @@ def path(node):  # To find the path from the goal node to the starting node
 def exploring_nodes(node):
     print("Exploring Nodes")
     actions = ["down", "up", "left", "right"]
-    goal_node = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 0]])
+    goal_node = np.array([[0, 1, 2], [3, 4, 5], [6, 7, 8]])
     node_q = [node]
     final_nodes = []
     visited = []
